@@ -44,28 +44,28 @@
             <option value="value10">Producto 10- $3.500</option>
         </select>
         <h3>Selecciones el tipo de Salsas: </h3>
-        <input type="checkbox" id="chkSalsa1" name="chkSalsa1">
-        <label for="vehicle1"> De la casa</label><br>
-        <input type="checkbox" id="chkSalsa2" name="chkSalsa2">
-        <label for="vehicle2"> Rosada</label><br>
-        <input type="checkbox" id="chkSalsa3" name="chkSalsa3">
-        <label for="vehicle3"> Mayonesa</label><br>
-        <input type="checkbox" id="chkSalsa4" name="chkSalsa4">
-        <label for="vehicle2"> Showy</label><br>
-        <input type="checkbox" id="chkSalsa5" name="chkSalsa5">
-        <label for="vehicle2"> Tomate</label><br>
-        <input type="checkbox" id="chkSalsa6" name="chkSalsa6">
-        <label for="vehicle2"> Piña</label><br>
+        <input type="checkbox" id="chkSalsa1" name="chkSalsa1" value="De la casa" onclick="obtenerSalsa()">
+        <label for="chkSalsa1"> De la casa</label><br>
+        <input type="checkbox" id="chkSalsa2" name="chkSalsa2" value="Rosada" onclick="obtenerSalsa()">
+        <label for="chkSalsa2"> Rosada</label><br>
+        <input type="checkbox" id="chkSalsa3" name="chkSalsa3" value="Mayonesa" onclick="obtenerSalsa()">
+        <label for="chkSalsa3"> Mayonesa</label><br>
+        <input type="checkbox" id="chkSalsa4" name="chkSalsa4" value="Showy" onclick="obtenerSalsa()">
+        <label for="chkSalsa4"> Showy</label><br>
+        <input type="checkbox" id="chkSalsa5" name="chkSalsa5" value="Tomate" onclick="obtenerSalsa()">
+        <label for="chkSalsa5"> Tomate</label><br>
+        <input type="checkbox" id="chkSalsa6" name="chkSalsa6" value="Piña" onclick="obtenerSalsa()">
+        <label for="chkSalsa6"> Piña</label><br>
 
         <h3>Selecciones el tipo de Adición: </h3>
-        <input type="checkbox" id="chkAdi1" name="chkAdi1">
-        <label for="vehicle1"> Tocineta</label><br>
-        <input type="checkbox" id="chkAdi2" name="chkAdi2">
-        <label for="vehicle2"> Huevos de codorniz (3) </label><br>
-        <input type="checkbox" id="chkAdi3" name="chkAdi3">
-        <label for="vehicle3"> Pollo</label><br>
-        <input type="checkbox" id="chkAdi4" name="chkAdi4">
-        <label for="vehicle2"> Carne</label><br>
+        <input type="checkbox" id="chkAdi1" name="chkAdi1" value="Tocineta" onclick="obtenerAdicion()">
+        <label for="chkAdi1"> Tocineta</label><br>
+        <input type="checkbox" id="chkAdi2" name="chkAdi2"value="Huevos de codorniz (3)" onclick="obtenerAdicion()">
+        <label for="chkAdi2"> Huevos de codorniz (3) </label><br>
+        <input type="checkbox" id="chkAdi3" name="chkAdi3" value="Pollo" onclick="obtenerAdicion()">
+        <label for="chkAdi3"> Pollo</label><br>
+        <input type="checkbox" id="chkAdi4" name="chkAdi4"value="Carne" onclick="obtenerAdicion()">
+        <label for="chkAdi4"> Carne</label><br>
 
         <h3>Comentarios: </h3>
         <p><textarea name="txtComentario" rows="5" cols="50"></textarea></p>
@@ -78,7 +78,18 @@
 </form>
 <p><input type="submit" value="Enviar datos" onclick="obtenerDatos()"></p>
 <script type="text/javascript">
-        let Seleccionado;
+    let Seleccionado;
+    let salsa1;
+    let salsa2;
+    let salsa3;
+    let salsa4;
+    let salsa5;
+    let salsa6;
+    let adicion1;
+    let adicion2;
+    let adicion3;
+    let adicion4;
+
 
     function obtenerDatos() {
         let nombre = document.getElementById('txtNombre').value;
@@ -87,25 +98,93 @@
         let radioDomi = "";
         if (document.getElementById('radMundi').checked) { radioMundi = 'MundiPapas'; }
         if (document.getElementById('radDomicilio').checked) { radioDomi = 'Domicilio'; }
-        
+       
         console.log(nombre + "\n" +
             Celular + "\n" +
             radioMundi + "\n" +
             radioDomi + "\n" +
-            seleccionado
+            seleccionado + "\n" 
         );
     }
 
     function obtenerProducto() {
-        /* Para obtener el valor
-        var cod = document.getElementById("selProducto").value;
-        alert(cod);*/
-
         /* Para obtener el texto */
         var combo = document.getElementById("selProducto");
-         seleccionado = combo.options[combo.selectedIndex].text;
-        //alert(selected);
+        console.log(seleccionado = combo.options[combo.selectedIndex].text);
     }
+
+    function obtenerSalsa() {
+        let salsas;
+
+        if (document.getElementById('chkSalsa1').checked) {
+            salsa1 = document.getElementById('chkSalsa1').value;
+        } else {
+            salsa1 = "";
+        }
+
+        if (document.getElementById('chkSalsa2').checked) {
+            salsa2 = document.getElementById('chkSalsa2').value;
+        } else {
+            salsa2 = "";
+        }
+
+        if (document.getElementById('chkSalsa3').checked) {
+            salsa3 = document.getElementById('chkSalsa3').value;
+        } else {
+            salsa3 = "";
+        }
+
+        if (document.getElementById('chkSalsa4').checked) {
+            salsa4 = document.getElementById('chkSalsa4').value;
+        } else {
+            salsa4 = "";
+        }
+
+        if (document.getElementById('chkSalsa5').checked) {
+            salsa5 = document.getElementById('chkSalsa5').value;
+        } else {
+            salsa5 = "";
+        }
+
+        if (document.getElementById('chkSalsa6').checked) {
+            salsa6 = document.getElementById('chkSalsa6').value;
+        } else {
+            salsa6 = "";
+        }
+
+        salsas = salsa1 + '-' + salsa2 + '-' + salsa3 + '-' +salsa4 + '-' +salsa5 + '-'+ salsa6;
+        console.log(salsas);
+    }
+
+    function obtenerAdicion() {
+        let adiciones;
+
+        if (document.getElementById('chkAdi1').checked) {
+            adicion1 = document.getElementById('chkAdi1').value;
+        } else {
+            adicion1 = "";
+        }
+
+        if (document.getElementById('chkAdi2').checked) {
+            adicion2 = document.getElementById('chkAdi2').value;
+        } else {
+            adicion2 = "";
+        }
+        if (document.getElementById('chkAdi3').checked) {
+            adicion3 = document.getElementById('chkAdi3').value;
+        } else {
+            adicion3 = "";
+        }
+        if (document.getElementById('chkAdi4').checked) {
+            adicion4 = document.getElementById('chkAdi4').value;
+        } else {
+            adicion4 = "";
+        }
+        adiciones = adicion1 + '-' + adicion2 + '-' + adicion3 + '-' +adicion4 ;
+        console.log(adiciones);
+    }
+
+
 </script>
 
 </html>
