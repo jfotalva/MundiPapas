@@ -23,7 +23,6 @@
             <input type="radio" id="radMundi" name="radMundi" value="Recoger en MundiPapas">
             <label for="radMundi">Recoger en MundiPapas</label>
         </div>
-
         <div>
             <input type="radio" id="radDomicilio" name="radDomicilio" value="Domicilio">
             <label for="radDomicilio">Domicilio</label>
@@ -32,7 +31,7 @@
     <p> </p>
 
     <fieldset>
-        <select name="selProducto" id="selProducto" onchange="obtenerDatos()">
+        <select name="selProducto" id="selProducto" onchange="obtenerProducto()">
             <option value="value1">Producto 1 - $3.500</option>
             <option value="value2">Producto 2- $3.500</option>
             <option value="value3">Producto 3- $3.500</option>
@@ -79,38 +78,32 @@
 </form>
 <p><input type="submit" value="Enviar datos" onclick="obtenerDatos()"></p>
 <script type="text/javascript">
-
+        let Seleccionado;
 
     function obtenerDatos() {
         let nombre = document.getElementById('txtNombre').value;
         let Celular = parseFloat(document.getElementById('txtCelular').value);
         let radioMundi = "";
         let radioDomi = "";
-        let seleccionado = selected;
         if (document.getElementById('radMundi').checked) { radioMundi = 'MundiPapas'; }
         if (document.getElementById('radDomicilio').checked) { radioDomi = 'Domicilio'; }
-        var combo = document.getElementById("selProducto");
-        var selected = combo.options[combo.selectedIndex].text;
-
+        
         console.log(nombre + "\n" +
             Celular + "\n" +
             radioMundi + "\n" +
             radioDomi + "\n" +
-            selected
-
-
-
+            seleccionado
         );
     }
 
-    function ShowSelected() {
+    function obtenerProducto() {
         /* Para obtener el valor
         var cod = document.getElementById("selProducto").value;
         alert(cod);*/
 
         /* Para obtener el texto */
         var combo = document.getElementById("selProducto");
-        var selected = combo.options[combo.selectedIndex].text;
+         seleccionado = combo.options[combo.selectedIndex].text;
         //alert(selected);
     }
 </script>
